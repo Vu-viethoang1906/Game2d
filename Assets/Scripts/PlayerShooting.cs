@@ -3,22 +3,39 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public static PlayerShooting instance;
-    
+
     public GameObject bulletPrefabs;
-    public float shootingInterval = 0.5f;
+    public float shootingInterval;
+    public Vector3 bulletOffset;
+    
     public int weaponPower = 1;
     public int maxweaponPower = 5;
 
     private float lastBulletTime;
 
-    void Awake()
+    private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
+    // Update is called once per frame
     void Update()
     {
-        // Automatic shooting based on interval
+        if (Input.GetMouseButton(0))
+        {
+            UpdateFiring();
+        }
+    }
+
+    private void UpdateFiring()
+    {
         if (Time.time - lastBulletTime > shootingInterval)
         {
             ShootBullet();
@@ -28,6 +45,6 @@ public class PlayerShooting : MonoBehaviour
 
     private void ShootBullet()
     {
-        Instantiate(bulletPrefabs, transform.position, transform.rotation);
+        var bullet = Instantiate(bulletPrefabs, transform.position + bulletOffset, transform.rotation);
     }
 }

@@ -178,4 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ba62a6f51503540a6ea63fd62a6f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 1280240331523082, guid: 0c99a6c83b11ae54fa0e10328b42e161,
+    type: 3}

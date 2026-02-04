@@ -1,12 +1,11 @@
 using System.Diagnostics;
 using UnityEngine;
 
-
-public class EnemyHealth : Health
+public class PlayerHealth : Health
 {
     protected override void Die()
     {
         base.Die();
-        Debug.Log("Enemy died");
+        Debug.Log("Player died");
     }
 }
